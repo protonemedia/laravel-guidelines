@@ -159,4 +159,4 @@ We proudly support the community by developing Laravel packages and giving them 
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
