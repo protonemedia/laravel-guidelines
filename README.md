@@ -14,9 +14,11 @@
 
 * Everything should work with [Inertia SSR](https://inertiajs.com/server-side-rendering) and [Laravel Octane](https://laravel.com/docs/9.x/octane).
 * Use translation strings, don't hard-code strings. This also applies to data like the app name, company name, company address, etc. Things may change over time.
-* Prefer storing settings in the database rather than configuration files.
+* Prefer storing app-specific settings (like enabling or disabling a feature) in the database rather than configuration files.
 * Avoid events/listeners. As always, it depends on the situation. If we're talking about 5+ actions, this might become cumbersome, and you want to use listeners. But my starting point is to keep it simple within the controller and refactor when it becomes more complex.
 * Use [atomic locks](https://laravel.com/docs/9.x/cache#atomic-locks) for actions like account creation, order confirmation, etc.
+* Actions that involve an unknown amount or database records should always be queued and never performed synchronously. Show a message to the user that the action is queued. Show the user where or how the status can be seen.
+* Present the user clear and informative error messages. Never assume the user knows why something fails.
 
 ### Testing
 
@@ -27,6 +29,7 @@
 
 * Keep controllers minimalistic and use actions similar to [Laravel Fortify](https://laravel.com/docs/9.x/fortify). For example, an interface would be named `UpdatesUserProfileInformation`, and its implementation `UpdateUserProfileInformation`.
 * Keep an activity log of all non-GET requests.
+* Don't limit controller methods to CRUD methods. It's perfectly fine to add an `approve` method, or use an invokable `ApproveBlogPost` controller.
 
 ### Security
 
@@ -44,6 +47,7 @@
 * Always [prevent the lazy loading](https://laravel.com/docs/9.x/eloquent-relationships#preventing-lazy-loading) of relationships.
 * Keep an eye on the duration of individual database queries. You may add this snippet, which I found in the [`handleExceedingCumulativeQueryDuration` PR](https://github.com/laravel/framework/pull/42744#issue-1267053567).
 * Enforce a morph map to ensure all polymorphs relationships are mapped to an alias: `Relation::requireMorphMap()`.
+* Be careful with chaining `orWhere*` constraints. When combined with other constraints, you often need to wrap `orWhere*` method calls.
 
 ```php
 if (!app()->isProduction()) {
