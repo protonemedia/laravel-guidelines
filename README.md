@@ -46,8 +46,6 @@
 * Prefer timestamps over booleans. For example, `published_at` instead of `is_published`.
 * Always [prevent the lazy loading](https://laravel.com/docs/9.x/eloquent-relationships#preventing-lazy-loading) of relationships.
 * Keep an eye on the duration of individual database queries. You may add this snippet, which I found in the [`handleExceedingCumulativeQueryDuration` PR](https://github.com/laravel/framework/pull/42744#issue-1267053567).
-* Enforce a morph map to ensure all polymorphs relationships are mapped to an alias: `Relation::requireMorphMap()`.
-* Be careful with chaining `orWhere*` constraints. When combined with other constraints, you often need to wrap `orWhere*` method calls.
 
 ```php
 if (!app()->isProduction()) {
@@ -64,6 +62,8 @@ if (!app()->isProduction()) {
 ```
 
 * For all data, write a mechanism to delete it as well. Make sure files and database records are *deletable* without breaking the application.
+* Enforce a morph map to ensure all polymorphs relationships are mapped to an alias: `Relation::requireMorphMap()`.
+* Be careful with chaining `orWhere*` constraints. When combined with other constraints, you often need to wrap `orWhere*` method calls.
 
 ### Mailables and Notifications
 
