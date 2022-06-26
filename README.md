@@ -1,6 +1,6 @@
 # Laravel Guidelines at Protone Media
 
-Work in progress!
+⚠️ Work in progress! ⚠️
 
 ## Development Guidelines
 
@@ -21,6 +21,7 @@ Work in progress!
 ### Testing
 
 * Write tests for everything. Also, every endpoint should have a [Laravel Dusk](https://laravel.com/docs/9.x/dusk) E2E test, and every feature should have its own test.
+* Ensure that all requests using the HTTP Client [have been faked](https://laravel.com/docs/9.x/http-client#preventing-stray-requests).
 
 ### Controllers and Actions
 
@@ -39,8 +40,10 @@ Work in progress!
 * Never leak Eloquent Models into the front-end. Always use [API Resources](https://laravel.com/docs/9.x/eloquent-resources) and don't use `toArray()` on a Model. Also, never directly use a request to save a model (e.g. `Model::create($request->all())`). Always validate and manually specify all fields  (e.g. `Model::create($request->validated())`). This way, we can unguard the models.
 * Use the static `query()` method to begin querying an Eloquent Model.
 * Use Incrementing IDs as the internal primary key. Use UUIDs for consumer-facing endpoints.
+* Prefer timestamps over booleans. For example, `published_at` instead of `is_published`.
 * Always [prevent the lazy loading](https://laravel.com/docs/9.x/eloquent-relationships#preventing-lazy-loading) of relationships.
 * Keep an eye on the duration of individual database queries. You may add this snippet, which I found in the [`handleExceedingCumulativeQueryDuration` PR](https://github.com/laravel/framework/pull/42744#issue-1267053567).
+* Enforce a morph map to ensure all polymorphs relationships are mapped to an alias: `Relation::requireMorphMap()`.
 
 ```php
 if (!app()->isProduction()) {
@@ -62,6 +65,11 @@ if (!app()->isProduction()) {
 
 * Prefer attaching a PDF to a Mailable rather than using more text or data in the mail contents.
 * There must be a way for users to resend a Mailable, for example, an order confirmation.
+* When you automate notifications, for example, a cronjob that sends invoice payment reminders, always store a timestamp of the moment you've sent it. You may run the cronjob unlimited times without worrying about sending duplicate notifications.
+
+### Misc
+
+* Always specify a `timeout` on the [HTTP Client](https://laravel.com/docs/9.x/http-client#timeout).
 
 ## ESLint
 
@@ -106,6 +114,8 @@ npm install @babel/plugin-syntax-dynamic-import --dev
 ```
 
 ## Laravel Mix
+
+*Deprecated: For new projects, start using [Vite](https://github.com/laravel/vite-plugin).*
 
 Install [Polyfill extension](https://laravel-mix.com/extensions/polyfill) to include polyfills by using Babel, core-js, and regenerator-runtime.
 
