@@ -130,3 +130,33 @@ npm install laravel-mix-polyfill --dev
 ```
 
 Checkout the `webpack.mix.js` example file, which includes fixes for some older browsers.
+
+## Sponsorship Support
+
+We proudly support the community by developing Laravel packages and giving them away for free. Keeping track of issues and pull requests takes time, but we're happy to help! If this package saves you time or if you're relying on it professionally, please consider [supporting the maintenance and development](https://github.com/sponsors/pascalbaljet).
+
+## Open-source packages
+
+* [`Inertia.js Events for Laravel Dusk`](https://github.com/protonemedia/inertiajs-events-laravel-dusk): This new package provides helper methods for Laravel Dusk that you can use to wait for specific Inertia.js events to fire.
+* [`Inertia.js Tables for Laravel Query Builder`](https://github.com/protonemedia/inertiajs-tables-laravel-query-builder): This package provides a DataTables-like experience for Inertia.js with support for searching, filtering, sorting, toggling columns, and pagination.
+* [`Laravel Analytics Event Tracking`](https://github.com/protonemedia/laravel-analytics-event-tracking): Laravel package to easily send events to Google Analytics.
+* [`Laravel Blade On Demand`](https://github.com/protonemedia/laravel-blade-on-demand): Laravel package to compile Blade templates in memory.
+* [`Laravel Cross Eloquent Search`](https://github.com/protonemedia/laravel-cross-eloquent-search): Laravel package to search through multiple Eloquent models.
+* [`Laravel Eloquent Scope as Select`](https://github.com/protonemedia/laravel-eloquent-scope-as-select): Stop duplicating your Eloquent query scopes and constraints in PHP. This package lets you re-use your query scopes and constraints by adding them as a subquery.
+* [`Laravel Eloquent Where Not`](https://github.com/protonemedia/laravel-eloquent-where-not): This Laravel package allows you to flip/invert an Eloquent scope, or really any query constraint.
+* [`Laravel Form Components`](https://github.com/protonemedia/laravel-form-components): Blade components to rapidly build forms with Tailwind CSS Custom Forms and Bootstrap 4. Supports validation, model binding, default values, translations, includes default vendor styling and fully customizable!
+* [`Laravel MinIO Testing Tools`](https://github.com/protonemedia/laravel-minio-testing-tools): This package provides a trait to run your tests against a MinIO S3 server.
+* [`Laravel Mixins`](https://github.com/protonemedia/laravel-mixins): A collection of Laravel goodies.
+* [`Laravel Paddle`](https://github.com/protonemedia/laravel-paddle): Paddle.com API integration for Laravel with support for webhooks/events.
+* [`Laravel Verify New Email`](https://github.com/protonemedia/laravel-verify-new-email): This package adds support for verifying new email addresses: when a user updates its email address, it won't replace the old one until the new one is verified.
+* [`Laravel WebDAV`](https://github.com/protonemedia/laravel-webdav): WebDAV driver for Laravel's Filesystem.
+* [`Laravel XSS Protection Middleware`](https://github.com/protonemedia/laravel-xss-protection): Laravel Middleware to protect your app against Cross-site scripting (XSS). It sanitizes request input by utilising the Laravel Security package, and it can sanatize Blade echo statements as well.
+
+## Credits
+
+- [Pascal Baljet](https://github.com/pascalbaljet)
+- [All Contributors](../../contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
