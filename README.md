@@ -34,8 +34,8 @@
 ### Security
 
 * Implement CSP and other security-related headers from the start. Don't think of it as an after sight.
-* Protect your app against Cross-site scripting (XSS). Not only escape user input at the front-end, but use the [XSS Protection Middleware package](https://github.com/protonemedia/laravel-xss-protection) to sanitizes request input.
-* Prefer uploading files to an external service like S3, instead of allowing file uploads directly to your app server. You may prevent file uploads with the XSS package.
+* Protect your app against Cross-site scripting (XSS). Not only escape user input at the front-end but use the [XSS Protection Middleware package](https://github.com/protonemedia/laravel-xss-protection) to sanitize request input.
+* Prefer uploading files to an external service like S3 instead of allowing file uploads directly to your app server. You may prevent file uploads with the XSS package.
 
 ### Database and Eloquent
 
