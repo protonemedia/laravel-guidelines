@@ -2,6 +2,12 @@
 
 ⚠️ Work in progress! ⚠️
 
+## 🤩 Have you seen Inertia Table? 🤩
+
+It's the Ultimate Table package for Inertia.js, featuring a built-in query builder and support for **React** and **Vue**. It has extensive filters, row actions, links, bulk actions, sorting, pagination, dark mode, and exports to CSV and Excel (and more!). It's also super customizable! Impress your users with beautiful, powerful tables, and never waste time building tables again.
+
+Check it out at https://inertiaui.com/inertia-table
+
 ## Development Guidelines
 
 ### Dependencies and styling
